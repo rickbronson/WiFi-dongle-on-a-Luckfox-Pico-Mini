@@ -31,7 +31,7 @@ cd WiFi-dongle-on-a-Luckfox-Pico-Mini
 git clone https://github.com/LuckfoxTECH/luckfox-pico
 git clone https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
 mkdir -p lib
-mv linux-firmware lib/firmware
+mv linux-firmware lib/firmware # move firmware to the right spot
 cd luckfox-pico
 sudo ./build.sh # choose your board, SD Card, Ubuntu
 cp ../luckfox_rv1106_linux_defconfig sysdrv/source/kernel/.config
@@ -39,12 +39,12 @@ cd sysdrv/source/kernel
 make ARCH=arm savedefconfig
 cp defconfig arch/arm/configs/luckfox_rv1106_linux_defconfig
 cd ../../..
-sudo ./build.sh driver
+sudo ./build.sh driver # build device driver modules, then copy firmware to filesystem
 sudo cp -a sysdrv/source/objs_kernel/drv_ko/lib/modules output/out/rootfs_uclibc_rv1106/usr/lib
 sudo cp -a ../lib/firmware/rtlwifi ../lib/firmware/rt2870.bin output/out/rootfs_uclibc_rv1106/usr/lib/firmware
-sudo ./build.sh firmware
+sudo ./build.sh firmware  # build SD Card image sub-parts
 cd ..
-make full.img
+make full.img  # build SD Card image
 # put SD card in, change the X in the following command to your SD Card drive letter:
 sudo pv full.img | sudo dd bs=1M oflag=direct,sync of=/dev/sdX
 # Plug SD Card into target and via USB serial converter, log into to root and do:
