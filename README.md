@@ -17,7 +17,7 @@ You will need one of the following:
 
 The following ones were tried but I could not get them working:
 
-	 - rtl8192cu.ko 0bda:8176 Realtek Semiconductor Corp. RTL8188CUS 802.11n WLAN Adapter
+   - rtl8192cu.ko 0bda:8176 Realtek Semiconductor Corp. RTL8188CUS 802.11n WLAN Adapter
    - rt2800usb.ko 1737:0077 802.11g Adapter [Linksys WUSB54GC v3] WUSB54GC v3 802.11g Adapter [Ralink RT2070L]
    - 8821cu.ko 0bda:c820 Realtek Semiconductor Corp. 802.11ac NIC
 
