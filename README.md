@@ -15,7 +15,7 @@ You will need one of the following:
    - r8712u.ko 0bda:8172 Realtek Semiconductor Corp. RTL8191SU 802.11n WLAN Adapter
    - r8188eu.ko 0bda:0179 Realtek Semiconductor Corp. RTL8188ETV Wireless LAN 802.11n Network Adapter
 
-  The following ones were tried but I couldn't get them working:
+The following ones were tried but I couldn't get them working:
 
 	 - rtl8192cu.ko 0bda:8176 Realtek Semiconductor Corp. RTL8188CUS 802.11n WLAN Adapter
    - rt2800usb.ko 1737:0077 802.11g Adapter [Linksys WUSB54GC v3] WUSB54GC v3 802.11g Adapter [Ralink RT2070L]
