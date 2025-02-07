@@ -14,11 +14,12 @@ You will need one of the following:
  - One of the following WiFi dongles:
    - r8712u.ko 0bda:8172 Realtek Semiconductor Corp. RTL8191SU 802.11n WLAN Adapter
    - r8188eu.ko 0bda:0179 Realtek Semiconductor Corp. RTL8188ETV Wireless LAN 802.11n Network Adapter
+   - rt2800usb.ko 1737:0077 802.11g Adapter [Linksys WUSB54GC v3] WUSB54GC v3 802.11g Adapter [Ralink RT2070L]
+   - rtl8192cu.ko 0bda:8176 Realtek Semiconductor Corp. RTL8188CUS 802.11n WLAN Adapter
 
 The following ones were tried but I could not get them working:
 
-   - rtl8192cu.ko 0bda:8176 Realtek Semiconductor Corp. RTL8188CUS 802.11n WLAN Adapter
-   - rt2800usb.ko 1737:0077 802.11g Adapter [Linksys WUSB54GC v3] WUSB54GC v3 802.11g Adapter [Ralink RT2070L]
+   - libertas_tf_usb.ko 1286:2001 Marvell Semiconductor, Inc. 88W8388 802.11a/b/g WLAN
    - 8821cu.ko 0bda:c820 Realtek Semiconductor Corp. 802.11ac NIC
 
 Steps for install:
@@ -41,7 +42,7 @@ cp defconfig arch/arm/configs/luckfox_rv1106_linux_defconfig
 cd ../../..
 sudo ./build.sh driver # build device driver modules, then copy firmware to filesystem
 sudo cp -a sysdrv/source/objs_kernel/drv_ko/lib/modules output/out/rootfs_uclibc_rv1106/usr/lib
-sudo cp -a ../lib/firmware/rtlwifi ../lib/firmware/rt2870.bin output/out/rootfs_uclibc_rv1106/usr/lib/firmware
+sudo cp -a ../lib/firmware/usb8388.bin ../lib/firmware/libertas/usb8388_v5.bin ../lib/firmware/rtlwifi ../lib/firmware/rt2870.bin output/out/rootfs_uclibc_rv1106/usr/lib/firmware
 sudo ./build.sh firmware  # build SD Card image sub-parts
 cd ..
 make full.img  # build SD Card image
@@ -52,6 +53,8 @@ luckfox-config
  # goto Advanced Options->USB and set to Host, then:
 reboot
 lsusb # should show your dongle
+# do this to get rid of any previous connections:
+nmcli --fields UUID,TIMESTAMP-REAL con show | grep -v UUID | awk '{print $1}' | while read line; do sudo nmcli con delete uuid $line; done
 nmcli device wifi connect <ESSID> --ask  # should connect to your router
 ifconfig # should show your connection
 nmcli device wifi list # should show all AP's
