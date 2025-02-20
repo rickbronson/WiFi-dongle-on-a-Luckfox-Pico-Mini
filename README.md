@@ -43,7 +43,7 @@ cp defconfig arch/arm/configs/luckfox_rv1106_linux_defconfig
 cd ../../..
 sudo ./build.sh driver # build device driver modules, then copy firmware to filesystem
 sudo cp -a sysdrv/source/objs_kernel/drv_ko/lib/modules output/out/rootfs_uclibc_rv1106/usr/lib
-sudo cp -a ../lib/firmware/usb8388.bin ../lib/firmware/libertas/usb8388_v5.bin ../lib/firmware/rtlwifi ../lib/firmware/mediatek/*7610* ../lib/firmware/rt2870.bin output/out/rootfs_uclibc_rv1106/usr/lib/firmware
+sudo cp -a ../lib/firmware/usb8388.bin ../lib/firmware/libertas/usb8388_v5.bin ../lib/firmware/rtlwifi ../lib/firmware/*7601* ../lib/firmware/rt2870.bin output/out/rootfs_uclibc_rv1106/usr/lib/firmware
 sudo ./build.sh firmware  # build SD Card image sub-parts
 cd ..
 make full.img  # build SD Card image
