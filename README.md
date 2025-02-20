@@ -9,7 +9,7 @@ You will need one of the following:
  - A USB C to USB A female OTG cable, preferably one that has a split to provide power.
  - A USB to serial converter hooked up according to:
 
-![alt text](https://github.com/rickbronson/WiFi-dongle-on-a-Luckfox-Pico-Mini/blob/master/docs/hardware/hookup2.png "hookup")
+![alt text](https://github.com/rickbronson/WiFi-dongle-on-a-luckfox-pico-Mini/blob/master/docs/hardware/hookup2.png "hookup")
 
  - One of the following WiFi dongles:
    - rtl8xxxu.ko 0bda:b720 Realtek Semiconductor Corp. RTL8723BU 802.11b/g/n WLAN Adapter
@@ -28,8 +28,8 @@ Steps for install:
  - On your Linux box do:
 
 ```
-git clone https://github.com/rickbronson/WiFi-dongle-on-a-Luckfox-Pico-Mini
-cd WiFi-dongle-on-a-Luckfox-Pico-Mini
+git clone https://github.com/rickbronson/WiFi-dongle-on-a-luckfox-pico-Mini
+cd WiFi-dongle-on-a-luckfox-pico-Mini
 git clone https://github.com/LuckfoxTECH/luckfox-pico
 git clone https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
 mkdir -p lib
