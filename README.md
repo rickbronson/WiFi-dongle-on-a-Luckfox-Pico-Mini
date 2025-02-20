@@ -12,6 +12,7 @@ You will need one of the following:
 ![alt text](https://github.com/rickbronson/WiFi-dongle-on-a-Luckfox-Pico-Mini/blob/master/docs/hardware/hookup2.png "hookup")
 
  - One of the following WiFi dongles:
+   - rtl8xxxu.ko 0bda:b720 Realtek Semiconductor Corp. RTL8723BU 802.11b/g/n WLAN Adapter
    - r8712u.ko 0bda:8172 Realtek Semiconductor Corp. RTL8191SU 802.11n WLAN Adapter
    - r8188eu.ko 0bda:0179 Realtek Semiconductor Corp. RTL8188ETV Wireless LAN 802.11n Network Adapter
    - rt2800usb.ko 1737:0077 802.11g Adapter [Linksys WUSB54GC v3] WUSB54GC v3 802.11g Adapter [Ralink RT2070L]
@@ -42,7 +43,7 @@ cp defconfig arch/arm/configs/luckfox_rv1106_linux_defconfig
 cd ../../..
 sudo ./build.sh driver # build device driver modules, then copy firmware to filesystem
 sudo cp -a sysdrv/source/objs_kernel/drv_ko/lib/modules output/out/rootfs_uclibc_rv1106/usr/lib
-sudo cp -a ../lib/firmware/usb8388.bin ../lib/firmware/libertas/usb8388_v5.bin ../lib/firmware/rtlwifi ../lib/firmware/rt2870.bin output/out/rootfs_uclibc_rv1106/usr/lib/firmware
+sudo cp -a ../lib/firmware/usb8388.bin ../lib/firmware/libertas/usb8388_v5.bin ../lib/firmware/rtlwifi ../lib/firmware/mediatek/*7610* ../lib/firmware/rt2870.bin output/out/rootfs_uclibc_rv1106/usr/lib/firmware
 sudo ./build.sh firmware  # build SD Card image sub-parts
 cd ..
 make full.img  # build SD Card image
